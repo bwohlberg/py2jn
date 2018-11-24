@@ -17,9 +17,9 @@ else:
 
 def read(filename):
     """
-    Read a regular Python file with special formatting and performance
-    preprocessing on it.  The result is a string that conforms to the IPython
-    notebook version 3 python script format.
+    Read a regular Python file with special formatting and perform
+    preprocessing on it.  The result is a string that conforms to the
+    IPython notebook version 3 python script format.
     """
     with open(filename, 'rb') as fin:
         token_gen = _generate_tokens(fin.readline)
@@ -31,9 +31,9 @@ def read(filename):
     return fix_empty_lines(formatted)
 
 
-# =============================================================================
+# ======================================================================
 #                                   Helpers
-# =============================================================================
+# ======================================================================
 
 def convert_toplevel_docstring(tokens):
     for token in tokens:
