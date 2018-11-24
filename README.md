@@ -1,12 +1,8 @@
-# Warning: This is unmaintained
-
-I do not have the bandwidth to maintain this project.  If you are interested, please feel free to fork and modify.
-
 # PY2NB: Python To Notebook Converter
 
 This is a small utility for turning python scripts into jupyter notebooks and
 convert module-level multiline (triple quote) string literals into markdown
-cells.  
+cells.
 
 ## Why?
 
@@ -67,4 +63,4 @@ importer in IPython version 3.  The processed tokens are untokenized using the
 
 
 
-License: BSD 3
+License: BSD 3-Clause
