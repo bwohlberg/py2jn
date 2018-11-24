@@ -15,4 +15,4 @@ def convert(input_string, output_filename):
         nb = nbpy.read(fin)
     # Write using the most recent version
     with open(output_filename, 'w') as fout:
-        nbf.write(nb, fout, version=max(nbf.versions))
+        nbf.write(nb, fout, version=nbf.current_nbformat)
