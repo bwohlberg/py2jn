@@ -1,0 +1,7 @@
+include MANIFEST.in
+include setup.py
+include README.rst
+include LICENSE
+include requirements.txt
+
+recursive-include py2nb *.py
