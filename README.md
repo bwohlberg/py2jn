@@ -37,48 +37,6 @@ To convert a Python script into a Jypyter notebook do
 python -m py2nb input.py output.ipynb
 ```
 
-## Examples
-
-See files `example.py` and `example.ipynb` in the `tests` directory.
-
-
-
-
-
-# PY2NB: Python To Notebook Converter
-
-This is a small utility for turning python scripts into jupyter notebooks and
-convert module-level multiline (triple quote) string literals into markdown
-cells.
-
-## Why?
-
-I wanted a tool to create user examples that can be executed as normal python
-scripts so that they can be copy-and-pasted easily and can be rendered as
-notebook for better readability (e.g nice styling, results embedded).
-
-Also,
-
-* Notebooks are nice to look at but slow to write
-* Notebooks does not play well with version control
-
-
-## Install
-
-```bash
-python setup.py install
-```
-
-
-## Usage
-
-
-To convert a python script into a notebook do
-```bash
-
-python -m py2nb input.py output.ipynb
-```
-
 To execute the notebook do
 ```bash
 jupyter nbconvert --to=notebook --execute output.ipynb
@@ -87,6 +45,11 @@ and to convert to HTML do
 ```bash
 jupyter nbconvert --to=html output.ipynb
 ```
+
+
+## Examples
+
+See files `example.py` and `example.ipynb` in the `tests` directory.
 
 
 ## Contact
