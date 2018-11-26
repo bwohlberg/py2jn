@@ -21,6 +21,7 @@ def read(filename):
     preprocessing on it.  The result is a string that conforms to the
     IPython notebook version 3 python script format.
     """
+
     with open(filename, 'rb') as fin:
         token_gen = _generate_tokens(fin.readline)
         cvt_docstr_gen = convert_toplevel_docstring(token_gen)

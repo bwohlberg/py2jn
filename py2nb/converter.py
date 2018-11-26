@@ -7,9 +7,8 @@ from io import StringIO
 
 
 def convert(input_string, output_filename):
-    """
-    Convert a preprocessed string object into notebook file
-    """
+    """Convert a preprocessed string object into notebook file."""
+
     # Read using v3
     with StringIO(input_string) as fin:
         nb = nbpy.read(fin)
