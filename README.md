@@ -1,3 +1,50 @@
+# py2nb
+
+py2nb is a utility for converting Python scripts into Jupyter notebooks.
+Module-level multiline (triple quote) string literals are converted
+into markdown cells, and sections of code separated by such strings are
+converted into distinct code cells.
+
+
+## Requirements
+
+The only requirement is [nbformat](https://github.com/jupyter/nbformat).
+Under Ubuntu Linux 18.04, this requirement can be installed by the command
+```bash
+  sudo apt-get install python-nbformat
+```
+or
+```bash
+sudo apt-get install python3-nbformat
+```
+for Python 2 or 3 respectively. It can also be installed via `pip`, e.g.
+```bash
+sudo -H pip install nbformat
+```
+
+
+## Installation
+
+From the package root directory do
+```bash
+python setup.py install
+```
+
+## Usage
+
+To convert a Python script into a Jypyter notebook do
+```bash
+python -m py2nb input.py output.ipynb
+```
+
+## Examples
+
+See files `example.py` and `example.ipynb` in the `tests` directory.
+
+
+
+
+
 # PY2NB: Python To Notebook Converter
 
 This is a small utility for turning python scripts into jupyter notebooks and
@@ -22,45 +69,32 @@ Also,
 python setup.py install
 ```
 
+
 ## Usage
 
 
-To convert a python script into a notebook:
-
+To convert a python script into a notebook do
 ```bash
 
 python -m py2nb input.py output.ipynb
 ```
 
-### Additional commandline not from this package
-
-Execute a notebook:
-
+To execute the notebook do
 ```bash
-ipython nbconvert --to=notebook --execute input.ipynb
+jupyter nbconvert --to=notebook --execute output.ipynb
 ```
-
-Convert a notebook to a HTML:
-
+and to convert to HTML do
 ```bash
-ipython nbconvert --to=html input.ipynb
+jupyter nbconvert --to=html output.ipynb
 ```
 
 
-## Samples
+## Contact
 
-See "samples" directory.
-
-
-
-## How?
-
-Uses python ``tokenize`` (builtin tokenizer library) for tokenization.
-String literals with triple quote at column zero are converted into a comment
-token with special ``<markdowncell>`` and ``<codecell>`` to feed into the python
-importer in IPython version 3.  The processed tokens are untokenized using the
-``tokenize`` module so that untouched line looks exactly the same as the input.
+Bug reports can be submitted via the [GitHub Issues interface](https://github.com/bwohlberg/py2nb/issues).
 
 
 
-License: BSD 3-Clause
+## License
+
+py2nb is distributed as open-source software under a BSD 3-Clause License (see the ``LICENSE`` file for details).
