@@ -1,12 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-test_py2nb
-----------------------------------
-
-Tests for `py2nb` module.
-"""
+"""Tests for py2nb module"""
 
 import os
 from tempfile import gettempdir
