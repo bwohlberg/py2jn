@@ -12,7 +12,6 @@ This package is a fork of
 [sklam/py2nb](https://github.com/sklam/py2nb), which is no longer
 maintained. Of the numerous forks of this original project, the only
 ones that appear to include significant additional development are:
-* [leonardt/py2nb](https://github.com/leonardt/py2nb)   Adds support for Python 3 and updates for changes in the nbformat dependency.
 * [blueogive/py2nb](https://github.com/blueogive/py2nb)   Adds proper packaging including tests, and syntax for specifying raw notebook cells.
 * [MarcusJones/py2jnb](https://github.com/MarcusJones/py2jnb)   Adds proper packaging including tests, and syntax for specifying notebook code cells. This package is available [via pip](https://pypi.org/project/py2jnb/).
 
