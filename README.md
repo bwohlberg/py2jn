@@ -6,6 +6,23 @@ into markdown cells, and sections of code separated by such strings are
 converted into distinct code cells.
 
 
+## Related Packages
+
+This package is a fork of
+[sklam/py2nb](https://github.com/sklam/py2nb), which is no longer
+maintained. Of the numerous forks of this original project, the only
+ones that appear to include significant additional development are:
+* [leonardt/py2nb](https://github.com/leonardt/py2nb)   Adds support for Python 3 and updates for changes in the nbformat dependency.
+* [blueogive/py2nb](https://github.com/blueogive/py2nb)   Adds proper packaging including tests, and syntax for specifying raw notebook cells.
+* [MarcusJones/py2jnb](https://github.com/MarcusJones/py2jnb)   Adds proper packaging including tests, and syntax for specifying notebook code cells. This package is available [via pip](https://pypi.org/project/py2jnb/).
+
+There are also some independent packages with roughly the same
+goals, and with the same or similar names:
+* [bjornaa/py2nb](https://github.com/bjornaa/py2nb)   Requires cell boundaries to be indicated via comments.
+* [chicham/py2nb](https://github.com/chicham/py2nb)   Requires markdown, raw, and code cells to be indicated via comments.
+* [williamjameshandley/py2nb](https://github.com/williamjameshandley/py2nb)   Requires markdown cells to be indicated via comments. This package is available [via pip](https://pypi.org/project/py2nb/).
+
+
 ## Requirements
 
 The only requirement is [nbformat](https://github.com/jupyter/nbformat).
@@ -15,11 +32,11 @@ Under Ubuntu Linux 18.04, this requirement can be installed by the command
 ```
 or
 ```bash
-sudo apt-get install python3-nbformat
+  sudo apt-get install python3-nbformat
 ```
 for Python 2 or 3 respectively. It can also be installed via `pip`, e.g.
 ```bash
-sudo -H pip install nbformat
+  sudo -H pip install nbformat
 ```
 
 
@@ -27,23 +44,23 @@ sudo -H pip install nbformat
 
 From the package root directory do
 ```bash
-python setup.py install
+  python setup.py install
 ```
 
 ## Usage
 
 To convert a Python script into a Jypyter notebook do
 ```bash
-python -m py2nb input.py output.ipynb
+  python -m py2nb input.py output.ipynb
 ```
 
 To execute the notebook do
 ```bash
-jupyter nbconvert --to=notebook --execute output.ipynb
+  jupyter nbconvert --to=notebook --execute output.ipynb
 ```
 and to convert to HTML do
 ```bash
-jupyter nbconvert --to=html output.ipynb
+  jupyter nbconvert --to=html output.ipynb
 ```
 
 
@@ -55,7 +72,6 @@ See files `example.py` and `example.ipynb` in the `tests` directory.
 ## Contact
 
 Bug reports can be submitted via the [GitHub Issues interface](https://github.com/bwohlberg/py2nb/issues).
-
 
 
 ## License
