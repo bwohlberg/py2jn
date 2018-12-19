@@ -21,9 +21,8 @@ def sampleipynb(fname='example.ipynb'):
 
 def test_py2nb(samplepy, sampleipynb):
     tmpdir = gettempdir()
-    python_to_notebook(input_filename=samplepy,
-                       output_filename=os.path.join(tmpdir,
-                                                    'py2nb_example.ipynb'))
+    outfile = os.path.join(tmpdir, 'py2nb_example.ipynb')
+    python_to_notebook(input_filename=samplepy, output_filename=outfile)
     with open(os.path.join(tmpdir, 'py2nb_example.ipynb'), 'r') as outfileobj:
         outfile = outfileobj.read()
     with open(sampleipynb, 'r') as reffileobj:
