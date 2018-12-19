@@ -62,7 +62,6 @@ def convert_toplevel_docstring(tokens):
         yield token
 
 
-
 def fix_newlines(tokens):
     first = True
     curline = 1
