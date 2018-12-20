@@ -6,7 +6,7 @@ from io import StringIO
 from nbformat.v3 import nbpy
 import nbformat as nbf
 
-from .reader import read
+from .reader import read_file
 
 
 def convert(input_string, output_filename):
@@ -25,5 +25,5 @@ def python_to_notebook(input_filename, output_filename):
     notebook.
     """
 
-    cvt = read(input_filename)
+    cvt = read_file(input_filename)
     convert(cvt, output_filename)

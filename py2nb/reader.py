@@ -3,34 +3,62 @@
 from __future__ import absolute_import, division, print_function
 
 import sys
-from collections import namedtuple
 import tokenize
+from io import StringIO
 
 if sys.version_info[0] == 2:
+    # Python 2.x
+    from collections import namedtuple
     TokenInfo = namedtuple('TokenInfo', 'type string start end line')
 
     def _generate_tokens(readline):
         return map(lambda x: TokenInfo(*x), tokenize.generate_tokens(readline))
 
 else:
+    # Python 3.x
     TokenInfo = tokenize.TokenInfo
     _generate_tokens = tokenize.tokenize
 
 
-def read(filename):
+
+
+def read_string(str):
     """
-    Read a regular Python file with special formatting and perform
+    Read a string containing a regular Python script with special
+    formatting, and perform preprocessing on it.  The result is a
+    string that conforms to the IPython notebook version 3 python
+    script format.
+    """
+
+    return read_python(StringIO(str))
+
+
+def read_file(filename):
+    """
+    Read a regular Python file with special formatting, and perform
     preprocessing on it.  The result is a string that conforms to the
     IPython notebook version 3 python script format.
     """
 
     with open(filename, 'rb') as fin:
-        token_gen = _generate_tokens(fin.readline)
-        cvt_docstr_gen = convert_toplevel_docstring(token_gen)
-        nl_gen = fix_newlines(cvt_docstr_gen)
-        out = list(nl_gen)
+        ipy = read_python(fin)
 
+    return ipy
+
+
+def read_python(fin):
+    """
+    Read a regular Python file with special formatting, and perform
+    preprocessing on it.  The result is a string that conforms to the
+    IPython notebook version 3 python script format.
+    """
+
+    token_gen = _generate_tokens(fin.readline)
+    cvt_docstr_gen = convert_toplevel_docstring(token_gen)
+    nl_gen = fix_newlines(cvt_docstr_gen)
+    out = list(nl_gen)
     formatted = tokenize.untokenize(out).decode('utf-8')
+
     return fix_empty_lines(formatted)
 
 
