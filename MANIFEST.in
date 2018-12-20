@@ -1,7 +1,8 @@
 include MANIFEST.in
 include setup.py
-include README.rst
+include README.md
 include LICENSE
 include requirements.txt
 
 recursive-include py2nb *.py
+recursive-include tests *.py *.ipynb

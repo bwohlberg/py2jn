@@ -16,16 +16,16 @@ py_modules = [name]
 
 longdesc = \
 """
-py2nb is a small utility for turning python scripts into jupyter notebooks and
-convert module-level multiline (triple quote) string literals into markdown
-cells.
+py2nb is a small utility for converting Python scripts into Jupyter
+Notebooks and convert module-level multiline (triple quote) string
+literals into markdown cells.
 """
 
 setup(
     name             = name,
     version          = version,
     py_modules       = py_modules,
-    description      = 'py2nb: convert python script to Jupyter notebook',
+    description      = 'py2nb: convert python script to Jupyter Notebook',
     long_description = longdesc,
     keywords         = ['Jupyter notebook'],
     platforms        = 'Any',
