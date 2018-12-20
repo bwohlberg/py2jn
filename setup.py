@@ -12,7 +12,7 @@ with open('py2nb/__init__.py') as f:
         lambda line: line.startswith('__version__'),
         f))).body[0].value.s
 
-py_modules = [name]
+packages = [name]
 
 longdesc = \
 """
@@ -24,7 +24,7 @@ literals into markdown cells.
 setup(
     name             = name,
     version          = version,
-    py_modules       = py_modules,
+    packages         = packages,
     description      = 'py2nb: convert python script to Jupyter Notebook',
     long_description = longdesc,
     keywords         = ['Jupyter notebook'],
