@@ -21,36 +21,11 @@ else:
 
 
 
-
-def read_string(str):
-    """
-    Read a string containing a regular Python script with special
-    formatting, and perform preprocessing on it.  The result is a
-    string that conforms to the IPython notebook version 3 python
-    script format.
-    """
-
-    return read_python(StringIO(str))
-
-
-def read_file(filename):
-    """
-    Read a regular Python file with special formatting, and perform
-    preprocessing on it.  The result is a string that conforms to the
-    IPython notebook version 3 python script format.
-    """
-
-    with open(filename, 'rb') as fin:
-        ipy = read_python(fin)
-
-    return ipy
-
-
 def read_python(fin):
     """
     Read a regular Python file with special formatting, and perform
     preprocessing on it.  The result is a string that conforms to the
-    IPython notebook version 3 python script format.
+    IPython notebook version 3 Python script format.
     """
 
     token_gen = _generate_tokens(fin.readline)

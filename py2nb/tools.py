@@ -6,17 +6,51 @@ from io import StringIO
 from nbformat.v3 import nbpy
 import nbformat as nbf
 
-from .reader import read_file
+from .reader import read_python
 
 
-def convert(input_string, output_filename):
-    """Convert a preprocessed string object into notebook file."""
 
-    # Read using v3
-    with StringIO(input_string) as fin:
+def py_string_to_nb_string(str):
+    """
+    Read a string containing a regular Python script with special
+    formatting, and perform preprocessing on it.  The result is a
+    string that conforms to the IPython notebook version 3 Python
+    script format.
+    """
+
+    return read_python(StringIO(str))
+
+
+def py_file_to_nb_string(filename):
+    """
+    Read a regular Python file with special formatting, and perform
+    preprocessing on it.  The result is a string that conforms to the
+    IPython notebook version 3 Python script format.
+    """
+
+    with open(filename, 'rb') as fin:
+        ipy = read_python(fin)
+
+    return ipy
+
+
+def nb_string_to_notebook(str):
+    """Convert a string representation of a notebook into a notebook
+    object.
+    """
+
+    # Read using v3 of nbformat
+    with StringIO(str) as fin:
         nb = nbpy.read(fin)
-    # Write using the most recent version
-    with open(output_filename, 'w') as fout:
+
+    return nb
+
+
+def write_notebook(nb, filename):
+    """Write a notebook object to a file."""
+
+    # Write using the most recent version of nbformat
+    with open(filename, 'w') as fout:
         nbf.write(nb, fout, version=nbf.current_nbformat)
 
 
@@ -25,5 +59,6 @@ def python_to_notebook(input_filename, output_filename):
     notebook.
     """
 
-    cvt = read_file(input_filename)
-    convert(cvt, output_filename)
+    nbstr = py_file_to_nb_string(input_filename)
+    nb = nb_string_to_notebook(nbstr)
+    write_notebook(nb, output_filename)
