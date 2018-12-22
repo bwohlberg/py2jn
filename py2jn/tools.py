@@ -14,7 +14,7 @@ __all__ = ['py_string_to_notebook', 'py_file_to_notebook',
 
 
 
-def py_string_to_notebook(str):
+def py_string_to_notebook(str, nbver=None):
     """Convert a string representation of a regular Python script into
     a notebook object.
     """
@@ -24,16 +24,24 @@ def py_string_to_notebook(str):
     with StringIO(ipy) as fin:
         nb = nbpy.read(fin)
 
+    # Convert to specific notebook version if specified
+    if nbver is not None:
+        nb = nbf.convert(nb, nbver)
+
     return nb
 
 
-def py_file_to_notebook(filename):
+def py_file_to_notebook(filename, nbver=None):
     """Convert a Python file into a notebook object."""
 
     ipy = py_file_to_ipy_string(filename)
     # Read using v3 of nbformat
     with StringIO(ipy) as fin:
         nb = nbpy.read(fin)
+
+    # Convert to specific notebook version if specified
+    if nbver is not None:
+        nb = nbf.convert(nb, nbver)
 
     return nb
 
