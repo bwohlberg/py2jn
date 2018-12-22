@@ -43,7 +43,7 @@ From the package root directory do
 
 To convert a Python script into a Jypyter notebook do
 ```bash
-  python -m py2nb input.py output.ipynb
+  python -m py2jn input.py output.ipynb
 ```
 
 To execute the notebook do
@@ -63,9 +63,9 @@ See files `example.py` and `example.ipynb` in the `tests` directory.
 
 ## Contact
 
-Bug reports can be submitted via the [GitHub Issues interface](https://github.com/bwohlberg/py2nb/issues).
+Bug reports can be submitted via the [GitHub Issues interface](https://github.com/bwohlberg/py2jn/issues).
 
 
 ## License
 
-py2nb is distributed as open-source software under a BSD 3-Clause License (see the ``LICENSE`` file for details).
+py2jn is distributed as open-source software under a BSD 3-Clause License (see the ``LICENSE`` file for details).
