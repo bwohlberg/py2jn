@@ -35,8 +35,7 @@ def test_py2jn(samplepy, sampleipynb):
 def test_str_to_str(samplepy, sampleipynb):
     with open(samplepy, 'r') as fin:
         pystr = fin.read()
-    nbstr = py2jn.py_string_to_nb_string(pystr)
-    nb = py2jn.nb_string_to_notebook(nbstr)
+    nb = py2jn.py_string_to_notebook(pystr)
     outstr = py2jn.write_notebook_to_string(nb)
     with open(sampleipynb, 'r') as fin:
         refstr = fin.read()

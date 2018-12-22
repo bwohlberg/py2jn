@@ -4,7 +4,7 @@ from __future__ import absolute_import, division, print_function
 
 import sys
 import tokenize
-from io import StringIO
+from io import BytesIO, StringIO
 
 if sys.version_info[0] == 2:
     # Python 2.x
@@ -19,6 +19,30 @@ else:
     TokenInfo = tokenize.TokenInfo
     _generate_tokens = tokenize.tokenize
 
+
+
+def py_string_to_ipy_string(str):
+    """
+    Read a string containing a regular Python script with special
+    formatting, and perform preprocessing on it.  The result is a
+    string that conforms to the IPython notebook version 3 Python
+    script format.
+    """
+
+    return read_python(BytesIO(str.encode()))
+
+
+def py_file_to_ipy_string(filename):
+    """
+    Read a regular Python file with special formatting, and perform
+    preprocessing on it.  The result is a string that conforms to the
+    IPython notebook version 3 Python script format.
+    """
+
+    with open(filename, 'rb') as fin:
+        ipy = read_python(fin)
+
+    return ipy
 
 
 def read_python(fin):
