@@ -19,8 +19,8 @@ def py_string_to_notebook(str):
     a notebook object.
     """
 
-    # Read using v3 of nbformat
     ipy = py_string_to_ipy_string(str)
+    # Read using v3 of nbformat
     with StringIO(ipy) as fin:
         nb = nbpy.read(fin)
 
@@ -31,26 +31,28 @@ def py_file_to_notebook(filename):
     """Convert a Python file into a notebook object."""
 
     ipy = py_file_to_ipy_string(filename)
+    # Read using v3 of nbformat
     with StringIO(ipy) as fin:
         nb = nbpy.read(fin)
 
     return nb
 
 
-def write_notebook(nb, filename):
-    """Write a notebook object to a file."""
+def write_notebook(nb, filename, nbver=nbf.current_nbformat):
+    """Write a notebook object to a file. Use the most recent version of
+    nbformat by default."""
 
-    # Write using the most recent version of nbformat
     with open(filename, 'w') as fout:
-        nbf.write(nb, fout, version=nbf.current_nbformat)
+        nbf.write(nb, fout, version=nbver)
 
 
-def write_notebook_to_string(nb):
-    """Write a notebook object to a string."""
+def write_notebook_to_string(nb, nbver=nbf.current_nbformat):
+    """Write a notebook object to a string.  Use the most recent
+    version of nbformat by default.
+    """
 
-    # Write using the most recent version of nbformat
     with StringIO('') as fout:
-        nbf.write(nb, fout, version=nbf.current_nbformat)
+        nbf.write(nb, fout, version=nbver)
         str = fout.getvalue()
     return str
 
