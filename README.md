@@ -1,6 +1,6 @@
-# py2nb
+# py2jn
 
-py2nb is a utility for converting Python scripts into Jupyter notebooks.  Module-level multiline (triple quote) string literals are converted into markdown cells, and sections of code separated by such strings are converted into distinct code cells.
+py2jn is a utility for converting Python scripts into Jupyter Notebooks.  Module-level multiline (triple quote) string literals are converted into markdown cells, and sections of code separated by such strings are converted into distinct code cells.
 
 
 ## Related Packages

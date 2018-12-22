@@ -4,5 +4,5 @@ include README.md
 include LICENSE
 include requirements.txt
 
-recursive-include py2nb *.py
+recursive-include py2jn *.py
 recursive-include tests *.py *.ipynb

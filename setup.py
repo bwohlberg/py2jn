@@ -5,9 +5,9 @@ from setuptools import setup
 from ast import parse
 
 
-name = 'py2nb'
+name = 'py2jn'
 # See http://stackoverflow.com/questions/2058802
-with open('py2nb/__init__.py') as f:
+with open('py2jn/__init__.py') as f:
     version = parse(next(filter(
         lambda line: line.startswith('__version__'),
         f))).body[0].value.s
@@ -16,7 +16,7 @@ packages = [name]
 
 longdesc = \
 """
-py2nb is a small utility for converting Python scripts into Jupyter
+py2jn is a small utility for converting Python scripts into Jupyter
 Notebooks and convert module-level multiline (triple quote) string
 literals into markdown cells.
 """
@@ -25,12 +25,12 @@ setup(
     name             = name,
     version          = version,
     packages         = packages,
-    description      = 'py2nb: convert python script to Jupyter Notebook',
+    description      = 'py2jn: convert Python script to Jupyter Notebook',
     long_description = longdesc,
-    keywords         = ['Jupyter notebook'],
+    keywords         = ['Jupyter Notebook'],
     platforms        = 'Any',
     license          = 'BSD',
-    url              = 'https://github.com/bwohlberg/py2nb',
+    url              = 'https://github.com/bwohlberg/py2jn',
     author           = 'Siu Kwan Lam',
     author_email     = None,
     maintainer       = 'Brendt Wohlberg',

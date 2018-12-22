@@ -1,7 +1,7 @@
 from __future__ import print_function, absolute_import
 
 import argparse
-from py2nb.tools import python_to_notebook
+from py2jn.tools import python_to_notebook
 
 description = """
 Convert a literate Python script into a Jupyter Notebook
