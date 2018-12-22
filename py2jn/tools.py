@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import, print_function
 
-from io import StringIO
+from io import BytesIO, StringIO
 from nbformat.v3 import nbpy
 import nbformat as nbf
 
@@ -11,7 +11,7 @@ from .reader import read_python
 
 __all__ = ['py_string_to_nb_string', 'py_file_to_nb_string',
            'nb_string_to_notebook', 'write_notebook',
-           'python_to_notebook']
+           'write_notebook_to_string', 'python_to_notebook']
 
 
 def py_string_to_nb_string(str):
@@ -22,7 +22,7 @@ def py_string_to_nb_string(str):
     script format.
     """
 
-    return read_python(StringIO(str))
+    return read_python(BytesIO(str.encode()))
 
 
 def py_file_to_nb_string(filename):
@@ -56,6 +56,16 @@ def write_notebook(nb, filename):
     # Write using the most recent version of nbformat
     with open(filename, 'w') as fout:
         nbf.write(nb, fout, version=nbf.current_nbformat)
+
+
+def write_notebook_to_string(nb):
+    """Write a notebook object to a string."""
+
+    # Write using the most recent version of nbformat
+    with StringIO('') as fout:
+        nbf.write(nb, fout, version=nbf.current_nbformat)
+        str = fout.getvalue()
+    return str
 
 
 def python_to_notebook(input_filename, output_filename):

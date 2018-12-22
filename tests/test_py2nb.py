@@ -6,6 +6,7 @@
 import os
 from tempfile import gettempdir
 import pytest
+import py2jn
 from py2jn.__main__ import python_to_notebook
 
 
@@ -29,3 +30,14 @@ def test_py2jn(samplepy, sampleipynb):
         refile = reffileobj.read()
     assert outfile == refile
     os.remove(os.path.join(tmpdir, 'py2jn_example.ipynb'))
+
+
+def test_str_to_str(samplepy, sampleipynb):
+    with open(samplepy, 'r') as fin:
+        pystr = fin.read()
+    nbstr = py2jn.py_string_to_nb_string(pystr)
+    nb = py2jn.nb_string_to_notebook(nbstr)
+    nbstr = py2jn.write_notebook_to_string(nb)
+    with open(sampleipynb, 'r') as fin:
+        nbstrref = fin.read()
+    assert nbstr == nbstrref
