@@ -37,7 +37,7 @@ def test_str_to_str(samplepy, sampleipynb):
         pystr = fin.read()
     nbstr = py2jn.py_string_to_nb_string(pystr)
     nb = py2jn.nb_string_to_notebook(nbstr)
-    nbstr = py2jn.write_notebook_to_string(nb)
+    outstr = py2jn.write_notebook_to_string(nb)
     with open(sampleipynb, 'r') as fin:
-        nbstrref = fin.read()
-    assert nbstr == nbstrref
+        refstr = fin.read()
+    assert outstr == refstr
