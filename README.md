@@ -41,11 +41,12 @@ From the package root directory do
 
 ## Usage
 
-To convert a Python script into a Jypyter notebook do
+### Command line
+
+To convert a Python script into a Jupyter notebook do
 ```bash
   python -m py2jn input.py output.ipynb
 ```
-
 To execute the notebook do
 ```bash
   jupyter nbconvert --to=notebook --execute output.ipynb
@@ -54,6 +55,17 @@ and to convert to HTML do
 ```bash
   jupyter nbconvert --to=html output.ipynb
 ```
+
+### Python module
+
+Module `py2jn` includes the following utility functions:
+
+|--------------------------|---------------------------------------------------|
+|`py_string_to_notebook`   | Convert Python script in string to notebook object|
+|`py_file_to_notebook`     | Convert Python script file to notebook object     |
+|`write_notebook`          | Write notebook object to a file                   |
+|`write_notebook_to_string`| Write notebook object to a string                 |
+|`python_to_notebook`      | Convert Python script file to notebook file       |
 
 
 ## Examples
