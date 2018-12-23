@@ -60,6 +60,7 @@ and to convert to HTML do
 
 Module `py2jn` includes the following utility functions:
 
+|Function                  |Description                                        |
 |--------------------------|---------------------------------------------------|
 |`py_string_to_notebook`   | Convert Python script in string to notebook object|
 |`py_file_to_notebook`     | Convert Python script file to notebook object     |
