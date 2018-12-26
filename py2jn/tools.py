@@ -10,7 +10,8 @@ from .reader import py_string_to_ipy_string, py_file_to_ipy_string
 
 
 __all__ = ['py_string_to_notebook', 'py_file_to_notebook',
-           'write_notebook_to_string', 'python_to_notebook']
+           'write_notebook', 'write_notebook_to_string',
+           'python_to_notebook']
 
 
 
